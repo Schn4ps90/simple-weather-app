@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Weather App</title>
+  <script src="https://unpkg.com/axios@0.12.0/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/lodash@4.13.1/lodash.min.js"></script>
+  <script src="https://unpkg.com/vue@2.3.4"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.css">
+    <!--  <style type="text/css">
+   div {
+      background-image: url(http://img.freepik.com/free-vector/weather-pattern_1061-487.jpg?size=338&ext=jpg);
+      background-position: left bottom;
+      background-repeat: repeat-x, repeat-y;
+      }
+    </style> -->
+</head>
+<body>
+  <div id="weather" class="hero is-info is-medium">
+
+  <div class="hero-head">
+    <h1><strong>Weather Forecast<strong></h1>
+  </div>
+<div class="hero-body">
+<nav class="level">
+  <div class="level-center">
+    <div class="level-item">
+    </div>
+    <div class="level-item">
+      <div class="field has-addons">
+        <p class="control">
+          <input class="input is-info" type="text" v-model="city" v-on:keyup.enter="getData" placeholder="Show me the weather in...">
+        </p>
+        <p class="control">
+          <button class="button" v-model="city" @click="getData">
+            Search
+          </button>
+        </p>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<nav class="level" v-show="isVisible">
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Temperature</p>
+      <p class="title">{{ tempCurrent }} &#8451</p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Conditions</p>
+      <p class="title">{{ condtiton }}</p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Wind speed</p>
+      <p class="title"> {{ wind }}km/h</p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Local time</p>
+      <p class="title">{{ localtime }}</p>
+    </div>
+  </div>
+</nav>
+</div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
